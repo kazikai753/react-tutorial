@@ -46,7 +46,11 @@ const Game = () => {
       </div>
       <div className="game-info">
         <GameStatus squares={currentSquares()} next={next()} />
-        <TravelingButtons history={history} onClick={jumpTo} />
+        <TravelingButtons
+          history={history}
+          currentStep={currentStep}
+          onClick={jumpTo}
+        />
       </div>
     </div>
   );
