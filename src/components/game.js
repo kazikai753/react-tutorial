@@ -5,7 +5,7 @@ import TravelingButtons from "./travelingbuttons";
 import { calculateWinner } from "./helper";
 
 const Game = () => {
-  const ini = [{ stepNum: 0, squares: Array(9).fill("") }];
+  const ini = [{ stepNum: 0, move: null, squares: Array(9).fill("") }];
   const [history, setHistory] = useState(ini);
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -24,7 +24,9 @@ const Game = () => {
     const newSquares = currentSquares.slice();
     newSquares[i] = next() ? "X" : "O";
     setHistory(
-      newHistory.concat([{ stepNum: newHistory.length, squares: newSquares }])
+      newHistory.concat([
+        { stepNum: newHistory.length, move: i, squares: newSquares },
+      ])
     );
     setCurrentStep(newHistory.length);
   };
